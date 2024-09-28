@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+    <h1>Items List</h1>
+    <ul>
+        {% for item in items %}
+        <li><strong>{{ item.name }}</strong>: {{ item.description }}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{% url 'item_create' %}" class="button">Create New Item</a>
+    <a href="{% url 'api_get_items' %}" class="button">View API Items</a>
+</body>
+
+</html>
